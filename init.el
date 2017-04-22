@@ -1,4 +1,3 @@
-
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
@@ -51,7 +50,7 @@
 
 (require 'init-frame-hooks)
 (require 'init-xterm)
-(require 'init-themes)
+;;(require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-dired)
@@ -159,10 +158,17 @@
 (when (maybe-require-package 'uptimes)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
+;; customzied configurations
+(require 'customized-key-bindings)
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(load-theme 'solarized t)
+;;
 
 (provide 'init)
 
-;; Local Variables:
+;;  Local Variables
+:
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
